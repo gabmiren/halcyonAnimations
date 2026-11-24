@@ -29,6 +29,12 @@ These are reusable building blocks for the 90s finance-TV look. Every piece live
 | Split-flap board | Departure-board flaps that cycle characters and settle, with a clack sound per flap | PCE (release board) |
 | Chart recorder | Scrolling graph paper, pen head drawing the line, labels that scroll with the paper, rubber-stamp slam | PCE (Nasdaq Fri/Mon) |
 
+## Minimal chart pieces (single-stage explainer, not the 90s look)
+| Piece | Description | Used in |
+|---|---|---|
+| Cheat-sheet grid cover | Title over a 2-2-1 grid of mini charts with labels; frame 1, the cover and the closing frame | 5 candlestick patterns |
+| Candle-by-candle stage chart | Canvas candles (cyan up, grey down) with separate body and wick timing, plus capsule, box, ring, open/close tick-meet, dashed range lines and arrows that land on spoken words | 5 candlestick patterns |
+
 ## Not used yet (ideas for next time)
 Fax machine printing a headline, pager or beeper message, rotary phone ringing with an on-screen caller ID, 7-segment calculator, dot-matrix printer tearing off a strip, cassette or VHS tape label for the title, newspaper spinning in, Rolodex card flip, stock-quote tape machine (ticker tape), weather-map-style heat map, old Bloomberg-style amber terminal.
 

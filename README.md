@@ -47,6 +47,7 @@ Everything we make for Halcyon's 90s finance-TV reels lives here, so a new reel 
 | `2026-11-20_anthropic-ipo_mark.mp3` | Anthropic IPO | 1.0x |
 | `2026-11-23_nvidia-huang-back_mark.mp3` | Nvidia / Huang back | 1.07x |
 | `2026-11-25_pce-3-things_mark.mp3` | PCE 3 things | 1.10x |
+| `2026-11-24_candlestick-patterns-5_mark.mp3` | 5 candlestick patterns | pauses stretched, then 1.10x |
 
 ## Reels
 | Reel | Posted | Length | Credits | Set pieces |
@@ -54,6 +55,7 @@ Everything we make for Halcyon's 90s finance-TV reels lives here, so a new reel 
 | `2026-11-20_anthropic-ipo` | Fri 20 Nov, 8 PM MYT | 35 s | 24.03 | LED closing board, ROTATION.EXE window, CRT desk teletext chart, drawdown battery |
 | `2026-11-23_nvidia-huang-back` | Tue 24 Nov, 12:40 AM MYT | 37 s | 28.52 | NVIDIA ▲33% tag, LED board, NASDAQ-100.EXE window, CRT candles, drawdown bar |
 | `2026-11-25_pce-3-things` | planned Wed 25 Nov, 7 AM ET | 38.6 s | ~3 (voice only) | Hook sticker, inflation gauge, VFD register display, split-flap board, chart recorder + stamp |
+| `2026-11-24_candlestick-patterns-5` | Tue 24 Nov, 8 PM MYT | 59.9 s | 0 (ElevenLabs voice from Gabriel) | Not 90s style: single-stage candle chart explainer, cheat-sheet grid cover, word-by-word captions on top |
 
 ## Build a reel (summary)
 1. Copy the closest reel folder, then write the script and get the voice (Higgsfield `elevenlabs_v4`, Mark preset `27c04473-84a9-4b60-a41f-c8e8458bd4f1`).
