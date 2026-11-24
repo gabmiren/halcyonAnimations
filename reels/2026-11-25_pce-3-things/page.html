@@ -26,7 +26,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 .cap .cl{font:800 56px/1.12 Poppins;letter-spacing:-.02em;text-shadow:3px 3px 0 #000,0 0 18px rgba(0,0,0,.9)}
 .cap .w{color:#6f7677}.cap .w.on{color:#F2F2F2}.cap .w.on.k{color:#00FBF4}
 /* hook sticker */
-#stk{position:absolute;left:505px;top:860px;width:330px;height:330px;margin-left:-165px;border-radius:50%;background:#00FBF4;color:#0B0C0D;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 8px #0B0C0D,0 0 0 12px #00FBF4,0 18px 50px rgba(0,0,0,.6);text-align:center}
+#stk{position:absolute;left:505px;top:690px;width:330px;height:330px;margin-left:-165px;border-radius:50%;background:#00FBF4;color:#0B0C0D;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 8px #0B0C0D,0 0 0 12px #00FBF4,0 18px 50px rgba(0,0,0,.6);text-align:center}
 #stk .a{font:800 44px/1 Poppins;letter-spacing:.12em}
 #stk .b{font:800 112px/0.95 Poppins;letter-spacing:-.03em;margin:6px 0 2px}
 #stk .c{font:800 36px/1 Poppins;letter-spacing:.14em}
@@ -45,7 +45,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 .fl .fh{position:absolute;left:0;right:0;top:0;height:42px;background:#1b2021;transform-origin:50% 100%;overflow:hidden}
 #plot{position:absolute;left:28px;right:28px;top:62px;bottom:28px;border-radius:8px;overflow:hidden;background:#071010}
 #pc{position:absolute;inset:0;width:100%;height:100%}
-#stamp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-7deg);border:7px solid #00FBF4;color:#00FBF4;font:800 76px/1 Poppins;letter-spacing:.06em;padding:18px 30px 14px;white-space:nowrap;opacity:0;text-shadow:0 0 20px rgba(0,251,244,.5);box-shadow:0 0 30px rgba(0,251,244,.3),inset 0 0 20px rgba(0,251,244,.15);background:rgba(2,10,10,.55)}
+#stamp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-7deg);border:7px solid #00FBF4;color:#00FBF4;font:800 60px/1 Poppins;letter-spacing:.06em;padding:16px 26px 12px;white-space:nowrap;opacity:0;text-shadow:0 0 20px rgba(0,251,244,.5);box-shadow:0 0 30px rgba(0,251,244,.3),inset 0 0 20px rgba(0,251,244,.15);background:rgba(2,10,10,.55)}
 #end{background:#0B0C0D}
 #end .q{position:absolute;left:80px;right:140px;top:560px;text-align:center;font:800 70px/1.1 Poppins;letter-spacing:-.02em}
 #end .q .k{color:#00FBF4}
@@ -60,18 +60,18 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 
 <div class="L" id="hk"><div id="stk"><div class="a">WED</div><div class="b">8:30</div><div class="c">AM ET</div></div></div>
 
-<div class="L" id="c1"><div class="metal" id="meter" style="top:600px;height:540px"><div class="plate">INFLATION GAUGE</div>
+<div class="L" id="c1"><div class="metal" id="meter" style="top:590px;height:520px"><div class="plate">INFLATION GAUGE</div>
  <div class="screw" style="left:16px;top:16px"></div><div class="screw" style="right:16px;top:16px"></div><div class="screw" style="left:16px;bottom:16px"></div><div class="screw" style="right:16px;bottom:16px"></div>
  <canvas id="gc" width="1716" height="1000" style="position:absolute;left:0;top:0;width:858px;height:500px"></canvas></div></div>
 
-<div class="L" id="c2"><div class="metal" id="reg" style="top:610px;height:520px"><div class="plate">REGISTER DISPLAY</div>
+<div class="L" id="c2"><div class="metal" id="reg" style="top:590px;height:520px"><div class="plate">REGISTER DISPLAY</div>
  <div class="screw" style="left:16px;top:16px"></div><div class="screw" style="right:16px;top:16px"></div>
  <div id="vfdwrap"><canvas id="vfd" width="802" height="424"></canvas></div></div></div>
 
-<div class="L" id="c3"><div class="metal" id="board" style="top:600px;height:520px"><div class="plate">DEPARTURES · RELEASES</div>
+<div class="L" id="c3"><div class="metal" id="board" style="top:590px;height:520px"><div class="plate">DEPARTURES · RELEASES</div>
  <div class="flapwrap" id="flaps"></div></div></div>
 
-<div class="L" id="c4"><div class="metal" id="rec" style="top:600px;height:540px"><div class="plate">CHART RECORDER · NASDAQ-100</div>
+<div class="L" id="c4"><div class="metal" id="rec" style="top:590px;height:520px"><div class="plate">CHART RECORDER · NASDAQ-100</div>
  <div class="screw" style="left:16px;top:16px"></div><div class="screw" style="right:16px;top:16px"></div>
  <div id="plot"><canvas id="pc" width="1604" height="900"></canvas><div id="stamp">KNOW YOUR RISK</div></div></div></div>
 
@@ -108,7 +108,7 @@ const cache={};function img(src){if(!cache[src]){const im=new Image();im.src=src
 function fname(dir,i){return `fr/${dir}/${String(i).padStart(3,'0')}.jpg`;}
 // ---------- CH1 gauge ----------
 function gauge(t){const cv=$('gc'),g=cv.getContext('2d');const W=cv.width,H=cv.height;g.clearRect(0,0,W,H);
- const cx=W/2,cy=840,R=600;const a0=Math.PI*1.08,a1=Math.PI*1.92;const vmax=5;const ang=v=>a0+(a1-a0)*cl(v/vmax,0,1.04);
+ const cx=W/2,cy=730,R=540;const a0=Math.PI*1.08,a1=Math.PI*1.92;const vmax=5;const ang=v=>a0+(a1-a0)*cl(v/vmax,0,1.04);
  // face
  g.fillStyle='#0d1111';g.beginPath();g.arc(cx,cy,R+60,Math.PI,0);g.lineTo(cx+R+60,cy+40);g.lineTo(cx-R-60,cy+40);g.closePath();g.fill();
  // zone above target (hatched grey)
@@ -123,7 +123,7 @@ function gauge(t){const cv=$('gc'),g=cv.getContext('2d');const W=cv.width,H=cv.h
  // target notch
  const ta=lin(t,8.05,8.3);
  if(ta>0){const a=ang(2);g.globalAlpha=ta;g.strokeStyle='#00FBF4';g.lineWidth=18;g.shadowColor='#00FBF4';g.shadowBlur=30;g.beginPath();g.moveTo(cx+Math.cos(a)*(R+40),cy+Math.sin(a)*(R+40));g.lineTo(cx+Math.cos(a)*(R-90),cy+Math.sin(a)*(R-90));g.stroke();g.shadowBlur=0;
-  g.fillStyle='#00FBF4';g.font='800 50px Poppins';g.textAlign='right';g.fillText('FED TARGET 2%',cx+Math.cos(a)*(R+60)-10,cy+Math.sin(a)*(R+60)-46);g.globalAlpha=1;}
+  g.fillStyle='#00FBF4';g.font='800 48px Poppins';g.textAlign='right';g.textBaseline='middle';g.fillText('FED TARGET 2%',cx+Math.cos(a)*(R+40)-34,cy+Math.sin(a)*(R+40)+20);g.globalAlpha=1;}
  // needle value
  let v=0.15+Math.sin(t*9)*0.04;
  const p2=lin(t,8.1,8.45),p3=lin(t,10.78,11.35);
@@ -134,7 +134,7 @@ function gauge(t){const cv=$('gc'),g=cv.getContext('2d');const W=cv.width,H=cv.h
  g.strokeStyle='#F2F2F2';g.lineWidth=12;g.lineCap='round';g.shadowColor='rgba(0,0,0,.8)';g.shadowBlur=16;g.beginPath();g.moveTo(cx-Math.cos(a)*70,cy-Math.sin(a)*70);g.lineTo(cx+Math.cos(a)*(R-40),cy+Math.sin(a)*(R-40));g.stroke();g.shadowBlur=0;
  g.fillStyle='#2b3132';g.beginPath();g.arc(cx,cy,48,0,7);g.fill();g.fillStyle='#AFAFAF';g.beginPath();g.arc(cx,cy,18,0,7);g.fill();
  // digital readout
- const rx=cx-210,ry=cy-330;g.fillStyle='#020a0a';g.fillRect(rx,ry,420,130);g.strokeStyle='#3a4142';g.lineWidth=4;g.strokeRect(rx,ry,420,130);
+ const rx=cx-210,ry=cy+92;g.fillStyle='#020a0a';g.fillRect(rx,ry,420,130);g.strokeStyle='#3a4142';g.lineWidth=4;g.strokeRect(rx,ry,420,130);
  g.textAlign='center';g.textBaseline='middle';g.font='800 40px Poppins';g.fillStyle='#8a9091';g.fillText(t>=10.8?'OCT EST · Y/Y':'READING',cx,ry+36);
  g.font='800 64px Poppins';g.fillStyle=t>=10.8?'#00FBF4':'#F2F2F2';g.fillText((t>=10.8?Math.min(3.8,v):v).toFixed(1)+'%',cx,ry+92);
 }
@@ -149,13 +149,13 @@ function vfd(t){const g=$('vfd').getContext('2d');vo.fillStyle='#000';vo.fillRec
   vo.textAlign='right';vo.font='800 14px Poppins';vo.fillStyle='#00FBF4';
   if(t>=16.8){const k=eo(lin(t,16.8,17.05));vo.fillText('+'+(0.3*k).toFixed(1)+'%',vcols-4,3);}
   if(t>=17.85&&(blink||t>18.4)){vo.fillText('?.?%',vcols-4,23);}
-  vo.fillStyle='#0f3b3a';vo.fillRect(2,44,vcols-4,1);
-  vo.textAlign='left';vo.font='800 12px Poppins';
-  vo.fillStyle=t>=18.4?'#00FBF4':'#0d2c2b';vo.fillText('▲ HOTTER',4,50);
-  vo.fillStyle=t>=20.04?'#00FBF4':'#0d2c2b';vo.fillText('▼ SOFTER',4,66);
-  vo.textAlign='right';vo.font='700 11px Poppins';
-  if(t>=19.5){vo.fillStyle='#7fe9e5';vo.fillText('RATE WORRIES',vcols-4,51);}
-  if(t>=20.98){vo.fillStyle='#7fe9e5';vo.fillText('RELIEF',vcols-4,67);}
+  vo.fillStyle='#0f3b3a';vo.fillRect(2,45,vcols-4,1);
+  vo.textAlign='left';vo.font='800 11px Poppins';
+  vo.fillStyle=t>=18.4?'#00FBF4':'#0d2c2b';vo.fillText('▲ HOTTER',4,52);
+  vo.fillStyle=t>=20.04?'#00FBF4':'#0d2c2b';vo.fillText('▼ SOFTER',4,69);
+  vo.textAlign='right';vo.font='700 9px Poppins';
+  if(t>=19.5){vo.fillStyle='#7fe9e5';vo.fillText('RATE WORRIES',vcols-4,54);}
+  if(t>=20.98){vo.fillStyle='#7fe9e5';vo.fillText('RELIEF',vcols-4,71);}
  }
  const d=vo.getImageData(0,0,vcols,vrows).data;g.fillStyle='#020a0a';g.fillRect(0,0,VW,VH);
  g.fillStyle='rgba(0,251,244,0.05)';for(let y=0;y<vrows;y++)for(let x=0;x<vcols;x++)g.fillRect(x*VP+1,y*VP+1,VP-2,VP-2);
@@ -194,7 +194,7 @@ function recorder(tr){const t=Math.min(tr,31.1);const cv=$('pc'),g=cv.getContext
 }
 // ---------- captions ----------
 let CI=-1;
-const CC=[S.c1,S.c2,S.c3,S.c4];function cin(c){let st=c.s-0.12;for(const k of CC)if(st<k&&k<=c.s)st=k;return st;}
+const CC=[S.c1,S.c2,S.c3,S.c4];function cin(c){let st=c.s-0.09;for(const k of CC)if(st<k&&k<=c.s)st=k;return st;}
 function cout(c){let e=c.e;for(const k of CUTS)if(c.s<k&&k<e)e=k;return e;}
 function caps(t){let ci=-1;TL.chunks.forEach((c,i)=>{if(t>=cin(c)&&t<cout(c))ci=i;});
  if(t>=S.off)ci=-1;

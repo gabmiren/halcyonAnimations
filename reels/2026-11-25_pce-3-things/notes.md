@@ -15,3 +15,12 @@ Release on 25 Nov at 8:30 AM ET with Q3 GDP second estimate: BEA schedule. Headl
 
 ## Cost
 About 3 Higgsfield credits (voice only). Footage is free from Pexels.
+
+## QA (v3, 24 Nov)
+Full video-render-qa pass. Fixes from v2:
+- Spacing: the hook sticker overlapped the caption by 38px, so it moved up 170px. Panels moved to y 590 at 520 tall, giving a 66px gap above captions.
+- Gauge: the readout moved below the hub so the needle no longer crosses it, and the target label sits beside its notch.
+- Register display: more room between the HOTTER/SOFTER and RATE WORRIES/RELIEF columns.
+- Recorder: the stamp is smaller so it clears the paper edge.
+- Audio: the register beeps, flap clacks and gauge blips were 7 to 13 dB under the music, so they were raised. Every cue now sits above the music and at least 6 dB under the voice.
+- Captions lead the voice by 0.09 s (was 0.12).

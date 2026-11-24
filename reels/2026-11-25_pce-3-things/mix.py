@@ -61,24 +61,24 @@ def ws(txt,after=0): return [x['s'] for x in W if x['t']==txt and x['s']>after][
 # static bursts on cuts
 for c in [S['c1'],S['c2'],S['c3'],S['c4']]: put(static(0.16),c,-18)
 # hook
-put(thud,0.02,-16,True); put(thud,ws('PCE.'),-17,True)
+put(thud,0.02,-13,True); put(thud,ws('PCE.'),-17,True)
 def swish(d=0.25,f0=900,f1=300):
     m_=int(d*sr); k=np.arange(m_)/sr; fq=np.linspace(f0,f1,m_); ph=2*np.pi*np.cumsum(fq)/sr
     x=rng.standard_normal(m_)*0.5+np.sin(ph)*0.4; b_,a_=ss.butter(2,[300/(sr/2),4000/(sr/2)],'band'); x=ss.lfilter(b_,a_,x)
     return (x*np.sin(np.pi*k/d)).astype(np.float32)
-put(blip(1300,0.05,False),ws('inflation'),-30)
+put(blip(1300,0.05,False),ws('inflation'),-17)
 put(swish(0.3),8.1,-24); put(thud,ws('2%,'),-17,True)
 put(swish(0.45,1100,250),10.78,-22); put(thud,ws('3.8%.'),-14,True)
 def beep(f=2200,d=0.09): return blip(f,d,False)
-put(beep(2600,0.07),13.22,-24); put(beep(2600,0.07),13.42,-24)
-put(beep(2200),ws('0.3%'),-22); put(thud,ws('0.3%'),-19,True)
-for k in range(3): put(beep(1800,0.05),17.9+k*0.33,-30)
-put(beep(2800,0.08),ws('Hotter'),-24); put(beep(1400,0.1),ws('Softer'),-24)
+put(beep(2600,0.07),13.22,-12); put(beep(2600,0.07),13.42,-12)
+put(beep(2200),ws('0.3%'),-17); put(thud,ws('0.3%'),-19,True)
+for k in range(3): put(beep(1800,0.05),17.9+k*0.33,-17)
+put(beep(2800,0.08),ws('Hotter'),-12); put(beep(1400,0.1),ws('Softer'),-12)
 def clack():
     m_=int(0.018*sr); x=rng.standard_normal(m_); b_,a_=ss.butter(2,[1500/(sr/2),8000/(sr/2)],'band'); x=ss.lfilter(b_,a_,x)
     return (x*np.exp(-np.arange(m_)/(0.004*sr))).astype(np.float32)
 for t0 in [22.5,23.2,24.68,25.2]:
-    for k in range(18): put(clack(),t0+k*0.03+rng.uniform(0,0.01),-31)
+    for k in range(18): put(clack(),t0+k*0.03+rng.uniform(0,0.01),-17)
 put(thud,ws('8:30'),-19,True)
 def scratch(d):
     m_=int(d*sr); x=rng.standard_normal(m_); b_,a_=ss.butter(2,[2500/(sr/2),9000/(sr/2)],'band'); x=ss.lfilter(b_,a_,x)
