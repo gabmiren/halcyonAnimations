@@ -23,7 +23,8 @@ These are reusable building blocks for the 90s finance-TV look. Every piece live
 | Teletext chart | Cyan header band, chunky pixel line, dotted reference lines | Anthropic |
 | Drawdown battery or bar | Segmented battery that drains, or a bar next to a big candle | Anthropic, Nvidia |
 | Company name tag | Boxed name + big glowing % + ticker line | Nvidia |
-| Hook sticker | Rotated cyan circle sticker ("WED 8:30 AM ET") | PCE |
+| Rundown list panel | Metal panel with numbered cyan circles, one row per item. Rows light up in turn, and it doubles as the cover | PCE (hook) |
+| Hook sticker | Rotated cyan circle sticker ("WED 8:30 AM ET") | PCE v1 to v3, dropped for the list |
 | Analog gauge | Metal panel with screws, semicircle dial, hatched zone, glowing target notch, needle with overshoot, digital readout | PCE (inflation gauge) |
 | VFD register display | Cash-register vacuum fluorescent dot display. Blinking text, FORECAST / ACTUAL rows, hotter/softer lights | PCE |
 | Split-flap board | Departure-board flaps that cycle characters and settle, with a clack sound per flap | PCE (release board) |

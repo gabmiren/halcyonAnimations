@@ -6,7 +6,7 @@
 Three things every trader should know before Wednesday's PCE. One: it's the Fed's favourite inflation gauge. The target is two percent, and October's headline is expected near three point eight percent. Two: the surprise is what moves markets. Core is forecast to rise point three percent for the month. Hotter can mean rate worries. Softer can mean relief. Three: it drops at eight thirty Eastern, with GDP, the day before Thanksgiving. The Nasdaq fell five point six percent on Friday, then ripped higher on Monday, so know your risk before the number lands. Are you trading the release, or waiting it out?
 
 ## Scenes
-Free Pexels aisle footage with the "WED 8:30 AM ET" sticker, then CH 1 inflation gauge (needle to the 2% target, then 3.8%), then CH 2 VFD register (SURPRISE, forecast +0.3%, actual ?.?%, hotter/softer), then CH 3 split-flap board (WED 25 NOV / 8:30 AM ET / PCE + GDP / THU HOLIDAY), then the chart recorder (Fri −5.6%, Mon ▲) with the KNOW YOUR RISK stamp, then switch-off and the end card.
+Free Pexels aisle footage with a "TODAY'S RUNDOWN" panel listing the 3 things (each lights up in turn); this frame is the cover, then CH 1 inflation gauge (needle to the 2% target, then 3.8%), then CH 2 VFD register (SURPRISE, forecast +0.3%, actual ?.?%, hotter/softer), then CH 3 split-flap board (WED 25 NOV / 8:30 AM ET / PCE + GDP / THU HOLIDAY), then the chart recorder (Fri −5.6%, Mon ▲) with the KNOW YOUR RISK stamp, then switch-off and the end card.
 
 All the set pieces are new. None of the CRT desk, LED board or Win95 window from earlier reels.
 
@@ -24,3 +24,6 @@ Full video-render-qa pass. Fixes from v2:
 - Recorder: the stamp is smaller so it clears the paper edge.
 - Audio: the register beeps, flap clacks and gauge blips were 7 to 13 dB under the music, so they were raised. Every cue now sits above the music and at least 6 dB under the voice.
 - Captions lead the voice by 0.09 s (was 0.12).
+
+## v4 (24 Nov)
+The hook and cover now show the 3 things as a list (The Fed's favourite gauge / Surprises move markets / 8:30 AM ET, with GDP) in place of the time sticker. The footage is dimmed to 30% behind it for readability.

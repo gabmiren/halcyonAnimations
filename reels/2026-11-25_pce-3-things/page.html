@@ -46,6 +46,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 #plot{position:absolute;left:28px;right:28px;top:62px;bottom:28px;border-radius:8px;overflow:hidden;background:#071010}
 #pc{position:absolute;inset:0;width:100%;height:100%}
 #stamp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-7deg);border:7px solid #00FBF4;color:#00FBF4;font:800 60px/1 Poppins;letter-spacing:.06em;padding:16px 26px 12px;white-space:nowrap;opacity:0;text-shadow:0 0 20px rgba(0,251,244,.5);box-shadow:0 0 30px rgba(0,251,244,.3),inset 0 0 20px rgba(0,251,244,.15);background:rgba(2,10,10,.55)}
+.rl3{position:absolute;left:34px;right:34px;top:78px;bottom:34px;display:flex;flex-direction:column;justify-content:space-between}
+.ri{display:flex;align-items:center;gap:28px;height:116px;padding:0 26px;background:#0a0e0e;border:3px solid #2c3334;border-radius:10px}
+.rn{flex:0 0 78px;height:78px;border-radius:50%;background:#00FBF4;color:#0B0C0D;font:800 50px/78px Poppins;text-align:center;box-shadow:0 0 22px rgba(0,251,244,.45)}
+.rt{font:800 44px/1.05 Poppins;letter-spacing:-.015em;color:#F2F2F2;white-space:nowrap}
 #end{background:#0B0C0D}
 #end .q{position:absolute;left:80px;right:140px;top:560px;text-align:center;font:800 70px/1.1 Poppins;letter-spacing:-.02em}
 #end .q .k{color:#00FBF4}
@@ -58,7 +62,13 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 
 <div class="L" id="F"><img id="foot"><div id="footdim"></div><div class="band" id="band"></div></div>
 
-<div class="L" id="hk"><div id="stk"><div class="a">WED</div><div class="b">8:30</div><div class="c">AM ET</div></div></div>
+<div class="L" id="hk"><div class="metal" id="rundown" style="top:590px;height:520px"><div class="plate">TODAY'S RUNDOWN</div>
+ <div class="screw" style="left:16px;top:16px"></div><div class="screw" style="right:16px;top:16px"></div><div class="screw" style="left:16px;bottom:16px"></div><div class="screw" style="right:16px;bottom:16px"></div>
+ <div class="rl3">
+  <div class="ri"><div class="rn">1</div><div class="rt">The Fed's favourite gauge</div></div>
+  <div class="ri"><div class="rn">2</div><div class="rt">Surprises move markets</div></div>
+  <div class="ri"><div class="rn">3</div><div class="rt">8:30 AM ET, with GDP</div></div>
+ </div></div></div>
 
 <div class="L" id="c1"><div class="metal" id="meter" style="top:590px;height:520px"><div class="plate">INFLATION GAUGE</div>
  <div class="screw" style="left:16px;top:16px"></div><div class="screw" style="right:16px;top:16px"></div><div class="screw" style="left:16px;bottom:16px"></div><div class="screw" style="right:16px;bottom:16px"></div>
@@ -206,7 +216,7 @@ function caps(t){let ci=-1;TL.chunks.forEach((c,i)=>{if(t>=cin(c)&&t<cout(c))ci=
 async function seek(t){
  const fr=Math.round(t*30);
  let src=null,dim=0;
- if(t<S.c1){src=fname('aisle',1+Math.min(258,Math.floor(t*24)));dim=0.1;}
+ if(t<S.c1){src=fname('aisle',1+Math.min(258,Math.floor(t*24)));dim=0.3;}
  else if(t<S.c2){src=fname('cartb',1+Math.min(179,Math.floor((t-S.c1)*12)));dim=0.25;}
  else if(t<S.c3){src=fname('aisleb',1+Math.min(129,50+Math.floor((t-S.c2)*8)));dim=0.25;}
  else if(t<S.off+0.3){src=fname('cartb',1+Math.min(179,90+Math.floor((t-S.c3)*6)));dim=0.35;}
@@ -216,7 +226,7 @@ async function seek(t){
   const bt=((t*0.35)%1.4)/1.4;$('band').style.top=(bt*2100-120)+'px';$('band').style.opacity=t<S.c1?1:0.4;$('footdim').style.opacity=dim;}
  // hook sticker
  const hk=t<S.c1;$('hk').style.opacity=hk?1:0;
- if(hk){const a=eback(lin(t,0.0,0.35));$('stk').style.transform=`rotate(${-8+Math.sin(t*2)*1.2}deg) scale(${t<0.02?1:0.6+0.4*a})`;}
+ if(hk){[...document.querySelectorAll('#rundown .ri')].forEach((r,i)=>{const on=t>=0.75+i*0.9&&t<0.75+i*0.9+0.6;r.style.borderColor=on?'#00FBF4':'#2c3334';r.style.boxShadow=on?'0 0 24px rgba(0,251,244,.3)':'none';});}
  // CH1
  const c1=t>=S.c1&&t<S.c2;$('c1').style.opacity=c1?1:0;
  if(c1){const a=eo(lin(t,S.c1,S.c1+0.3));$('meter').style.transform=`translateY(${(1-a)*70}px)`;$('meter').style.opacity=a;gauge(t);}
