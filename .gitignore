@@ -1,0 +1,13 @@
+# licensed files we can't redistribute publicly: keep local copies here
+footage/stock/*.mp4
+audio/music/*.mp3
+audio/sfx/*
+!audio/sfx/README.md
+# build outputs
+reels/*/fr/
+reels/*/aud/
+reels/*/qa*/
+reels/*/snap*/
+reels/*/frames*/
+node_modules/
+*.wav
