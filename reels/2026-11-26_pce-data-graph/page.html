@@ -51,6 +51,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 <canvas id="noise" width="270" height="480"></canvas>
 <div class="scan"></div><div class="vig"></div>
 </div>
+<script>/*CFG*/</script>
 <script>
 const $=id=>document.getElementById(id);
 const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
@@ -58,7 +59,8 @@ const lin=(t,a,b)=>cl((t-a)/(b-a));
 const eo=x=>1-Math.pow(1-x,3);
 const eback=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2);};
 function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
-const HITS=[1.32,2.72,4.09,5.46], DROP=6.13, B2=8.92, B3=11.70, END=14.0;
+const CFG=window.CFG||{};const HITS=CFG.hits||[1.32,2.72,4.09,5.46], DROP=CFG.drop??6.13, B2=CFG.b2??8.92, B3=CFG.b3??11.70, END=CFG.end??14.0, SEND=CFG.send??B2;
+const K2=CFG.k2===undefined?'Still <b>1.8 points</b> above<br>the Fed\'s 2% goal':CFG.k2;
 const DATA=[['JUL',3.4],['AUG',3.5],['SEP',3.7],['OCT',3.8]];
 const TK='<span>PCE OCT <b class="u">3.8% Y/Y</b></span><span>CORE <b class="u">3.3% Y/Y</b></span><span>PCE <b class="u">+0.3% M/M</b></span><span>FED TARGET <b class="u">2%</b></span><span>SOURCE: BEA, 25 NOV</span>';
 $('tin').innerHTML=TK+TK+TK;
@@ -104,16 +106,16 @@ function term(t){const g=$('tc').getContext('2d');g.imageSmoothingEnabled=false;
  const gb=lin(t,B2+0.05,B2+0.45);
  if(gb>0&&tops.length==4){const x=X1-6;const yt=ym(3.8),yb=fy;const yc=yb-(yb-yt)*gb;g.fillStyle=C;g.fillRect(x,yc,2,yb-yc);g.fillRect(x-6,yb,8,2);if(gb>=1){g.fillRect(x-6,yt,8,2);g.font='800 12px Poppins';const t2='+1.8 PTS',w2=g.measureText(t2).width;const ly=(yt+yb)/2-8;g.fillStyle='rgba(2,14,14,.92)';g.fillRect(x-w2-16,ly-3,w2+10,19);g.textAlign='right';g.fillStyle=C;g.shadowColor=C;g.shadowBlur=6;g.fillText(t2,x-11,ly);g.shadowBlur=0;}}
 }
-const KICK=[[0,DROP-0.02,'The Fed\'s favourite<br>inflation gauge'],[B2,B3,'Still <b>1.8 points</b> above<br>the Fed\'s 2% goal']];
+const KICK=[[0,DROP-0.02,'The Fed\'s favourite<br>inflation gauge']];if(K2)KICK.push([B2,B3,K2]);
 let KI=-1;
 async function seek(t){const fr=Math.round(t*30);
- const src=`fr/bg/${String(1+Math.floor(t*12)%130).padStart(3,'0')}.jpg`;const im=await img(src);const f=$('foot');if(f.src!==im.src)f.src=im.src;await f.decode().catch(()=>{});
+ const src=`fr/bg/${String(1+(k=>k<130?k:258-k)(Math.floor(t*12)%258)).padStart(3,'0')}.jpg`;const im=await img(src);const f=$('foot');if(f.src!==im.src)f.src=im.src;await f.decode().catch(()=>{});
  term(t);
  // drop shake
  const sh=t>=DROP&&t<DROP+0.25?(1-(t-DROP)/0.25)*10:0;$('term').style.transform=`translate(${(rnd(fr)-.5)*sh}px,${(rnd(fr+3)-.5)*sh}px)`;
  $('flash').style.opacity=t>=DROP&&t<DROP+0.12?0.35*(1-(t-DROP)/0.12):0;
  // stamp
- const sk=lin(t,DROP+0.12,DROP+0.26);const st=$('stamp');st.style.opacity=(t>=DROP+0.12&&t<B2-0.0)?(t<B2-0.16?1:(B2-t)/0.16):0;st.style.transform=`translate(-50%,-50%) rotate(-6deg) scale(${1.45-0.45*eo(sk)})`;
+ const sk=lin(t,DROP+0.12,DROP+0.26);const st=$('stamp');st.style.opacity=(t>=DROP+0.12&&t<SEND)?(t<SEND-0.16?1:(SEND-t)/0.16):0;st.style.transform=`translate(-50%,-50%) rotate(-6deg) scale(${1.45-0.45*eo(sk)})`;
  // kicker
  let ki=-1;KICK.forEach((k,i)=>{if(t>=k[0]&&t<k[1])ki=i;});if(t>=B3)ki=-1;
  const kk=$('kick');if(ki!==KI){KI=ki;kk.innerHTML=ki<0?'':'<div class="cl">'+KICK[ki][2]+'</div>';}
