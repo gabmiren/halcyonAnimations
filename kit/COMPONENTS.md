@@ -29,6 +29,8 @@ These are reusable building blocks for the 90s finance-TV look. Every piece live
 | VFD register display | Cash-register vacuum fluorescent dot display. Blinking text, FORECAST / ACTUAL rows, hotter/softer lights | PCE |
 | Split-flap board | Departure-board flaps that cycle characters and settle, with a clack sound per flap | PCE (release board) |
 | Chart recorder | Scrolling graph paper, pen head drawing the line, labels that scroll with the paper, rubber-stamp slam | PCE (Nasdaq Fri/Mon) |
+| Phosphor terminal bar chart | Beveled terminal with a cyan phosphor screen canvas (406x244, pixelated). Header line with blinking cursor, y-axis grid, dashed FED TARGET line drawn over the bars, striped bars that grow on music hits with counting values, dashed trend arrow, gap bracket with a backed label | PCE data (Jul to Oct prints) |
+| Kicker-slot stamp | The rubber stamp slammed into the caption slot under the panel, so the chart stays unobstructed | PCE data |
 
 ## Minimal chart pieces (single-stage explainer, not the 90s look)
 | Piece | Description | Used in |
@@ -40,4 +42,4 @@ These are reusable building blocks for the 90s finance-TV look. Every piece live
 Fax machine printing a headline, pager or beeper message, rotary phone ringing with an on-screen caller ID, 7-segment calculator, dot-matrix printer tearing off a strip, cassette or VHS tape label for the title, newspaper spinning in, Rolodex card flip, stock-quote tape machine (ticker tape), weather-map-style heat map, old Bloomberg-style amber terminal.
 
 ## Sound per piece (in each `mix.py`)
-Thud on the key number, synthesized static on cuts, LED count blips, register beeps, flap clacks, needle swish, pen scratch, CRT power-down. The music is Starlight Trail, about 12 dB under the voice and ducked 2 dB while it speaks.
+Thud on the key number, synthesized static on cuts, LED count blips, register beeps, flap clacks, needle swish, pen scratch, CRT power-down. Music-only reels (no voice) set SFX against the music stem instead: aim for about -6 to -8 dB under the music on loud sections (check per event). The music is Starlight Trail, about 12 dB under the voice and ducked 2 dB while it speaks.
