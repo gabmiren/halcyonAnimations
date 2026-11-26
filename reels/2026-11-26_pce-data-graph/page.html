@@ -26,7 +26,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 .kick{position:absolute;left:80px;right:140px;top:1172px;height:140px;display:flex;align-items:flex-start;justify-content:center;text-align:center;z-index:46}
 .kick .cl{font:800 54px/1.12 Poppins;letter-spacing:-.02em;text-shadow:3px 3px 0 #000,0 0 18px rgba(0,0,0,.9)}
 .kick .cl b{color:#00FBF4}
-#stamp{position:absolute;left:505px;top:1222px;transform:translate(-50%,-50%) rotate(-6deg);border:7px solid #00FBF4;color:#00FBF4;font:800 56px/1.05 Poppins;letter-spacing:.05em;padding:16px 30px 12px;text-align:center;white-space:nowrap;opacity:0;text-shadow:0 0 20px rgba(0,251,244,.5);box-shadow:0 0 30px rgba(0,251,244,.3),inset 0 0 20px rgba(0,251,244,.15);background:rgba(2,12,12,.82);z-index:47}
+#stamp{position:absolute;left:505px;top:1252px;transform:translate(-50%,-50%);border:7px solid #00FBF4;color:#00FBF4;font:800 56px/1.05 Poppins;letter-spacing:.05em;padding:16px 30px 12px;text-align:center;white-space:nowrap;opacity:0;text-shadow:0 0 20px rgba(0,251,244,.5);box-shadow:0 0 30px rgba(0,251,244,.3),inset 0 0 20px rgba(0,251,244,.15);background:rgba(2,12,12,.82);z-index:47}
 #end{background:#0B0C0D;z-index:50}
 #end .q{position:absolute;left:80px;right:140px;top:560px;text-align:center;font:800 70px/1.1 Poppins;letter-spacing:-.02em}
 #end .q .k{color:#00FBF4}
@@ -40,7 +40,6 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0C0D;font-fam
 <div id="stamp">HIGHEST SINCE<br>2023</div>
 <div class="chy" id="chy"><div class="tag">MARKET WATCH · PCE</div><div class="bar rgb">Inflation keeps<br>climbing</div></div>
 <div class="kick" id="kick"></div>
-<div class="tick" id="tick"><div class="in" id="tin"></div></div>
 <div class="L" id="end">
  <div class="q">How are you trading<br><span class="k">hotter inflation?</span></div>
  <div class="pill">JOIN OUR DISCORD</div>
@@ -63,7 +62,6 @@ const CFG=window.CFG||{};const HITS=CFG.hits||[1.32,2.72,4.09,5.46], DROP=CFG.dr
 const K2=CFG.k2===undefined?'Still <b>1.8 points</b> above<br>the Fed\'s 2% goal':CFG.k2;
 const DATA=[['JUL',3.4],['AUG',3.5],['SEP',3.7],['OCT',3.8]];
 const TK='<span>PCE OCT <b class="u">3.8% Y/Y</b></span><span>CORE <b class="u">3.3% Y/Y</b></span><span>PCE <b class="u">+0.3% M/M</b></span><span>FED TARGET <b class="u">2%</b></span><span>SOURCE: BEA, 25 NOV</span>';
-$('tin').innerHTML=TK+TK+TK;
 const NS=[];for(let j=0;j<8;j++){const c=document.createElement('canvas');c.width=270;c.height=480;const x=c.getContext('2d'),im=x.createImageData(270,480);let s=j*9973+1;for(let i=0;i<im.data.length;i+=4){s=(s*16807)%2147483647;const v=s%256;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255;}x.putImageData(im,0,0);NS.push(c);}
 const cache={};function img(src){if(!cache[src]){const im=new Image();im.src=src;cache[src]=im.decode().then(()=>im).catch(()=>im);}return cache[src];}
 // terminal drawing (low-res canvas, pixelated)
@@ -115,14 +113,13 @@ async function seek(t){const fr=Math.round(t*30);
  const sh=t>=DROP&&t<DROP+0.25?(1-(t-DROP)/0.25)*10:0;$('term').style.transform=`translate(${(rnd(fr)-.5)*sh}px,${(rnd(fr+3)-.5)*sh}px)`;
  $('flash').style.opacity=t>=DROP&&t<DROP+0.12?0.35*(1-(t-DROP)/0.12):0;
  // stamp
- const sk=lin(t,DROP+0.12,DROP+0.26);const st=$('stamp');st.style.opacity=(t>=DROP+0.12&&t<SEND)?(t<SEND-0.16?1:(SEND-t)/0.16):0;st.style.transform=`translate(-50%,-50%) rotate(-6deg) scale(${1.45-0.45*eo(sk)})`;
+ const sk=lin(t,DROP+0.12,DROP+0.26);const st=$('stamp');st.style.opacity=(t>=DROP+0.12&&t<SEND)?(t<SEND-0.16?1:(SEND-t)/0.16):0;st.style.transform=`translate(-50%,-50%) scale(${1.45-0.45*eo(sk)})`;
  // kicker
  let ki=-1;KICK.forEach((k,i)=>{if(t>=k[0]&&t<k[1])ki=i;});if(t>=B3)ki=-1;
  const kk=$('kick');if(ki!==KI){KI=ki;kk.innerHTML=ki<0?'':'<div class="cl">'+KICK[ki][2]+'</div>';}
  if(ki>=0){const a=(ki==0?1:eo(lin(t,KICK[ki][0],KICK[ki][0]+0.18)))*(ki==0?1-lin(t,DROP-0.18,DROP-0.02):1);kk.style.opacity=a;kk.style.transform=`translateY(${(1-a)*14}px)`;}
  // end
  const e=lin(t,B3,B3+0.22);$('end').style.opacity=t>=B3?eo(e):0;
- $('tin').style.transform=`translateX(${-((t*95)%($('tin').scrollWidth/3))}px)`;
  $('noise').getContext('2d').drawImage(NS[fr%NS.length],0,0);
 }
 window.seek=seek;document.fonts.ready.then(()=>{seek(0);window.READY=true;});

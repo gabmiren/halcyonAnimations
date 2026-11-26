@@ -30,7 +30,7 @@ These are reusable building blocks for the 90s finance-TV look. Every piece live
 | Split-flap board | Departure-board flaps that cycle characters and settle, with a clack sound per flap | PCE (release board) |
 | Chart recorder | Scrolling graph paper, pen head drawing the line, labels that scroll with the paper, rubber-stamp slam | PCE (Nasdaq Fri/Mon) |
 | Phosphor terminal bar chart | Beveled terminal with a cyan phosphor screen canvas (406x244, pixelated). Header line with blinking cursor, y-axis grid, dashed FED TARGET line drawn over the bars, striped bars that grow on music hits with counting values, dashed trend arrow, gap bracket with a backed label | PCE data (Jul to Oct prints) |
-| Kicker-slot stamp | The rubber stamp slammed into the caption slot under the panel, so the chart stays unobstructed | PCE data |
+| Kicker-slot stamp | Straight (never tilted) boxed stamp that slams into the caption slot under the panel, so the chart stays unobstructed | PCE data |
 
 ## Minimal chart pieces (single-stage explainer, not the 90s look)
 | Piece | Description | Used in |

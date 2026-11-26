@@ -13,3 +13,6 @@ page.html is a template; build_var.sh <name> writes pce_<name>.html with window.
 - goodsax, "Good Sax End" whole track plus a 0.54 s reverb tail (10.6 s): bars 1.31/2.01/2.62/3.46, drop on the loudest sax stab 4.83, bracket 6.94 (no second kicker, stamp holds), end 8.62
 SFX are set relative to the local music level (mix_var.py): bar blips -4 dB, drop thud -5, stamp -7, beeps -6, end thud -7. Master is adaptive: -14 LUFS, true peak about -3 dB.
 Background frames now ping-pong (no jump when the 130-frame clip loops at 10.8 s).
+
+## v2 (picked: brokenheart)
+- Gabriel picked the broken heart version. Stamp is now straight (no tilted assets, ever) and the bottom ticker is gone; stamp sits 52px under the panel.
